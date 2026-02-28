@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "craigslist-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory", "${workspaceFolder}",
+        "craigslist-mcp"
+      ]
+    }
+  }
+}

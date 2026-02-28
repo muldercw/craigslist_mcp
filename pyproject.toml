@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "craigslist-mcp"
+version = "0.1.0"
+description = "An MCP server that searches Craigslist listings by location, category, and keyword."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "muldercw" },
+]
+keywords = ["mcp", "craigslist", "search", "classifieds", "marketplace"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+    "fastmcp>=2.0.0",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+craigslist-mcp = "craigslist_mcp.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/craigslist_mcp"]
+
+[tool.craigslist-mcp]
+default_location = "newyork"
+max_results = 100
